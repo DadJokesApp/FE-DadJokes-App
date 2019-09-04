@@ -6,7 +6,23 @@ import { Button } from 'reactstrap'
 class HomePage extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      credentials: {
+        username: '',
+        password: '',
+      }
+    }
   }
+
+  handleRegister = e => {
+    e.preventDefault()
+    this.props
+      .logout(this.state.credentials)
+      .then(() => this.props.addedUser 
+        ? this.props.history.push('/landing') 
+        : alert('User was not successfully logged out'))
+  }
+
   render() {
     return (
       <div>
