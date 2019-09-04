@@ -7,15 +7,14 @@ export const LOGOUT_FAILURE = 'DELETE_DATA_FAILURE'
 export const logout = user => dispatch => {
   dispatch({ type: LOGOUT_START })
   axios
-  // dadjokes-backend.herokuapp.com
-    .delete('https://localhost:5000/auth/logout')
+    .delete('https://dadjokes-backend.herokuapp.com/auth/logout')
     .then(res => {
-        dispatch({ 
-          type: LOGOUT_SUCCESS, 
-          payload: res.data 
-        })
+      dispatch({ 
+        type: LOGOUT_SUCCESS, 
+        payload: res.data 
+      })
     })
     .catch(err => {
-        dispatch({ type: LOGOUT_FAILURE, payload: err})
+      dispatch({ type: LOGOUT_FAILURE, payload: err})
     })
 }
