@@ -1,4 +1,5 @@
 import React from 'react'
+import './home.css'
 
 import { connect } from 'react-redux'
 import { logout } from '../../actions/logoutAction'
@@ -30,7 +31,7 @@ class HomePage extends React.Component {
       <div>
         <h1>Welcome to DadJokes!</h1>
         <Link to='/'>
-          <Button>Logout</Button>
+          <Button className='red btn'>Logout</Button>
         </Link>
       </div>
     )

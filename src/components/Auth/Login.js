@@ -1,4 +1,5 @@
 import React from 'react'
+import './login.css'
 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -37,14 +38,14 @@ class Login extends React.Component {
 
     return (
 
-      <div className='landing-wrapper'>
+      <div className='login-wrapper'>
 
         <Link to='/'>
           <h1>DadJokes</h1>
         </Link>
 
         <div className='headline'>
-          <h4>Please log-in here!</h4>
+          <h2>Please log-in here!</h2>
         </div>
 
         <Form onSubmit={this.handleLoginSubmit}>
@@ -64,7 +65,7 @@ class Login extends React.Component {
             onChange={this.handleInputChange}
           />
 
-          <Button>
+          <Button className='grn'>
             Log in
           </Button>
         </Form>

@@ -20,12 +20,16 @@ h2, h3, h4 {
   color: #B2CEF1;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 button {
   font-family: 'Cookie', cursive;
 }
 
 .btn {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
 .grn {

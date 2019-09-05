@@ -1,4 +1,5 @@
 import React from 'react'
+import './signup.css'
 import { register } from '../../actions/registerAction'
 import { connect } from 'react-redux'
 
@@ -40,7 +41,7 @@ class SignUp extends React.Component {
         </Link>
 
         <div className='headline'>
-            <h4>Please sign up here!</h4>
+            <h2>Please sign up here!</h2>
         </div>
 
         <Form onSubmit={this.handleRegister}>
@@ -68,7 +69,7 @@ class SignUp extends React.Component {
             onChange={this.handleInputChange}>
           </Input>
 
-          <Button>Sign Up</Button>
+          <Button className='red'>Sign Up</Button>
         </Form>
       </div>
     )

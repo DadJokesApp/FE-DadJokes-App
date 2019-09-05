@@ -15,16 +15,16 @@ const LandingPage = () => {
       </div>
       <div className='top-bar'>
         <div className='signup'>
-          <h3>Join dad jokes today!</h3>
-          <Link to="/register">
-            <Button className='red btn'>Sign up now!</Button>
+          <h2>Join dad jokes today!</h2>
+          <Link to="/signup">
+            <Button className='red'>Sign up now!</Button>
           </Link>
         </div>
         
         <div className='login'>
-          <h3>Already a member?</h3>
+          <h2>Already a member?</h2>
           <Link to="/login">
-            <Button className='grn btn'>Login here!</Button>
+            <Button className='grn'>Login here!</Button>
           </Link>
         </div>
       </div>
