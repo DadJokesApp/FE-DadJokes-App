@@ -10,7 +10,7 @@ export const register = newUser => dispatch => {
   console.log("New User: ", newUser)
   dispatch({ type: REGISTER_START })
   return axios
-    .post('http://localhost:5000/api/auth/register', newUser)
+    .post('https://dadjokes-backend.herokuapp.com/api/auth/register', newUser)
     .then(res => {
       const token = res.data.token
       localStorage.setItem('token', token)
@@ -26,6 +26,4 @@ export const register = newUser => dispatch => {
     .catch(err => {
       dispatch({ type: REGISTER_FAILURE, payload: err })
     })
-} 
-
-// .post('https://dadjokes-backend.herokuapp.com/api/auth/register', newUser)
+}

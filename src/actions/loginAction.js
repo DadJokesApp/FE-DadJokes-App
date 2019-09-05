@@ -10,9 +10,9 @@ export const login = creds => dispatch => {
   console.log('Login Creds: ', creds)
   dispatch({ type: LOGIN_START })
   return axios
-    .post('http://localhost:5000/api/auth/login',
-    creds,
-    { headers: creds })
+    .post('https://dadjokes-backend.herokuapp.com/api/auth/login',
+      creds,
+      { headers: creds })
     .then(res => {
       const token = res.data.token
       localStorage.setItem('token', token)
@@ -29,6 +29,4 @@ export const login = creds => dispatch => {
     .catch(err => {
       dispatch({ type: LOGIN_FAILURE, payload: err })
     })
-} 
-
-// .post('https://dadjokes-backend.herokuapp.com/api/auth/login',
+}
