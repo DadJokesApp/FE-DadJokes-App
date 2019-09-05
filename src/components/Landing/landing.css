@@ -1,0 +1,41 @@
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-wrapper .heading {
+  padding: 0;
+}
+
+.landing-wrapper .heading h1 {
+  font-size: 10rem;
+  text-align: center;
+}
+
+.landing-wrapper .heading a:hover {
+  text-decoration: none;
+}
+
+.top-bar {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}
+
+.top-bar h3 {
+  font-size: 2.4rem;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

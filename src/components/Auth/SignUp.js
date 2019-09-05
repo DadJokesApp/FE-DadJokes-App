@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Form, Input, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-class Register extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -34,7 +34,7 @@ class Register extends React.Component {
   }
   render() {
     return (
-      <div className='landing-wrapper'>
+      <div className='signup-wrapper'>
         <Link to='/'>
             <h1 className='heading'>DadJokes</h1>
         </Link>
@@ -68,7 +68,7 @@ class Register extends React.Component {
             onChange={this.handleInputChange}>
           </Input>
 
-          <Button>Register</Button>
+          <Button>Sign Up</Button>
         </Form>
       </div>
     )
@@ -84,4 +84,4 @@ const mapStateToProps =state => {
 export default connect(
     mapStateToProps,
     { register }
-)(Register)
+)(SignUp)

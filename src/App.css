@@ -1,33 +1,53 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Rancho&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
+
+html {
+  font-size: 62.5%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #32599F;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  font-family: 'Rancho', cursive;
+  color: #FBFBFB;
 }
 
-.App-link {
-  color: #61dafb;
+h2, h3, h4 {
+  font-family: 'Cookie', cursive;
+  color: #B2CEF1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  font-family: 'Cookie', cursive;
+}
+
+.btn {
+  font-size: 2rem;
+}
+
+.grn {
+  color: #42581A;
+  background: #94CE9C;
+  border: 3px solid #42581A;
+}
+
+.grn:hover {
+  color: #94CE9C;
+  background: #42581A;
+  border: 3px solid #94CE9C;
+}
+
+.red {
+  color: #780207;
+  background: #DF6668;
+  border: 3px solid #780207;
+}
+
+.red:hover {
+  color: #DF6668;
+  background: #780207;
+  border: 3px solid #DF6668;
 }

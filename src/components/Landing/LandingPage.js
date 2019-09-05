@@ -1,35 +1,33 @@
 import React from 'react'
+
+import './landing.css'
+
+import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
   return (
     <div className='landing-wrapper'>
-      <div className='turn-this-header-into-a-component'>
+      <div className='heading'>
         <Link to='/'>
-          <h1 className='heading'>DadJokes</h1>
+          <h1>DadJokes</h1>
         </Link>
       </div>
-      
-      <div className='headline'>
-        <h4>Got apples?</h4>
+      <div className='top-bar'>
+        <div className='signup'>
+          <h3>Join dad jokes today!</h3>
+          <Link to="/register">
+            <Button className='red btn'>Sign up now!</Button>
+          </Link>
+        </div>
+        
+        <div className='login'>
+          <h3>Already a member?</h3>
+          <Link to="/login">
+            <Button className='grn btn'>Login here!</Button>
+          </Link>
+        </div>
       </div>
-
-      <div className='signup'>
-        <Link to="/register">
-          <button className='red-btn'>Sign up now!</button>
-        </Link>
-      </div>
-
-      <div className='login-prompt'>
-        <p>Already a member?</p>
-      </div>
-
-      <div className='login'>
-        <Link to="/login">
-          <button className='green-btn'>Login here!</button>
-        </Link>
-      </div>
-
     </div>
   )
 }
