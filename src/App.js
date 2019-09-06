@@ -33,6 +33,12 @@ function App() {
         path="/protected"
         component={HomePage}
       />
+      <Route
+        path='/home'
+        render={props => (
+          <HomePage {...props} />
+        )}
+      />
     </div>
   )
 }

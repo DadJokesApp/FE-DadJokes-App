@@ -10,7 +10,7 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => {
       render={props => user ? <Component {...props} /> : <Redirect to="/login" />}
     />
   )
-}
+} 
 
 const mapStateToProps = state => {
   return {

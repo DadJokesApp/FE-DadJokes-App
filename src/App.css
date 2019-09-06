@@ -55,3 +55,10 @@ button {
   background: #780207;
   border: 3px solid #DF6668;
 }
+
+.profile-pic {
+  background: #67A9ED;
+  width: 120px;
+  border-radius: 60px;
+  border: 2px solid #2F2F2F;
+}

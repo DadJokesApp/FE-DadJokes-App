@@ -7,38 +7,43 @@ import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 class HomePage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      credentials: {
-        username: '',
-        password: '',
-      }
-    }
-  }
+  // constructor(props) {
+    // super(props)
+  //   this.state = {
+
+  //   }
+  // }
 
   handleLogout = e => {
     e.preventDefault()
     this.props
-      .logout(this.state.user)
-      .then(() => this.props.logout 
-        ? this.props.history.push('/landing') 
-        : alert('User was not successfully logged out'))
+      .logout()
+      // .then(() => this.props.history.push('/landing'))
   }
 
   render() {
+    console.log(`Image URL: ${this.props.user.img_url}`)
     return (
-      <div>
-        <h1>Welcome to DadJokes!</h1>
-        <Link to='/'>
-          <Button className='red btn'>Logout</Button>
-        </Link>
+      <div className='home-wrapper'>
+        <h1>Welcome to DadJokes, {this.props.user.username}!</h1>
+        <div className='logout-btn'>
+            <Button onClick={this.handleLogout} className='red btn'>
+              <Link to='/login'>
+                Logout
+              </Link>
+            </Button>
+          
+        </div>
+        <div className='profile-bar'>
+          <img className='profile-pic' src={this.props.user.img_url} alt='profile pic' />
+        </div>
+        
       </div>
     )
   }
 }
 
-const mapStateToProps =state => {
+const mapStateToProps = state => {
   return {
       user: state.user,
   }
