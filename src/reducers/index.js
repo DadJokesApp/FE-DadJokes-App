@@ -26,6 +26,7 @@ const initialState = {
   user: jwt.decode(localStorage.getItem('token')),
   addingUser: false,
   addedUser: false,
+  active: false,
 }
 
 const rootReducer = (state = initialState, action) => {
