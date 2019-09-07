@@ -28,6 +28,12 @@ import {
   DELETE_USER_FAILURE,
 } from '../actions/deleteUser'
 
+import {
+  GET_JOKES_START,
+  GET_JOKES_SUCCESS,
+  GET_JOKES_FAILURE,
+} from '../actions/getJokes'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -36,6 +42,7 @@ const initialState = {
   isLoggingIn: false,
   token: localStorage.getItem('token'),
   user: jwt.decode(localStorage.getItem('token')),
+  jokes: [],
   addingUser: false,
   addedUser: false,
   active: false,
@@ -70,7 +77,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         isLoggedIn: false,
-        error: 'FAILED to login',
+        error: action.payload,
       }
 
     // Register reducer 🦆
@@ -94,7 +101,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         addedUser: false,
-        error: 'FAILED to register',
+        error: action.payload,
       }
 
     // Logout reducer 🚀
@@ -116,7 +123,7 @@ const rootReducer = (state = initialState, action) => {
     case LOGOUT_FAILURE:
       return {
         ...state,
-        error: 'Logout failed',
+        error: action.payload,
       }
 
     // Update user 💁
@@ -140,7 +147,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         updated: false,
-        error: 'FAILED to register',
+        error: action.payload,
       }
 
     // Delete user
@@ -164,7 +171,31 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         updated: false,
-        error: 'FAILED to register',
+        error: action.payload,
+      }
+
+    // Get all jokes 😆
+    case GET_JOKES_START:
+      return {
+        ...state,
+        gettingJokes: true,
+        gotJokes: false,
+        error: '',
+      }
+
+    case GET_JOKES_SUCCESS:
+      return {
+        ...state,
+        gettingJokes: false,
+        gotJokes: true,
+        jokes: action.payload,
+        error: '',
+      }
+
+    case GET_JOKES_FAILURE:
+      return {
+        ...state,
+        error: '',
       }
 
     default:

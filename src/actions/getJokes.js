@@ -4,19 +4,19 @@ export const GET_JOKES_START = 'GET_JOKES_START'
 export const GET_JOKES_SUCCESS = 'GET_JOKES_SUCCESS'
 export const GET_JOKES_FAILURE = 'GET_JOKES_FAILURE'
 
-export const getJokes = token => dispatch => {
+export const getJokes = ()  => dispatch => {
   dispatch({ type: GET_JOKES_START })
   axios
-    .get('http://localhost:4000/api/jokes',
+    .get('http://localhost:4000/api/jokes')
     // .get('https://dadjokes-backend.herokuapp.com/api/jokes')
-    { headers: token })
     .then(res => {
-        dispatch({ type: GET_JOKES_SUCCESS, payload: res.data })
+        console.log(res.data)
+        dispatch({
+          type: GET_JOKES_SUCCESS,
+          payload: res.data
+        })
     })
     .catch(err => {
-        if (err.response.status === 403) {
-        localStorage.removeItem('token')
-        }
         dispatch({ type: GET_JOKES_FAILURE, payload: err })
     })
 }

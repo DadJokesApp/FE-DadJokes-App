@@ -57,7 +57,7 @@ class NavBar extends React.Component {
           <div className={`nav-links${this.state.active ? ' active' : ''}`}
             active={this.state.active}>
             <Link to='/home'>Home</Link>
-            <Link to='/'>Jokes</Link>
+            <Link to='/jokes'>Jokes</Link>
             <div onClick={this.handleLogout} className='nav-logout'>
               <Link to='/login'>
                 Logout

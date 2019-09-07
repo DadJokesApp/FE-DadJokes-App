@@ -9,7 +9,7 @@ import SignUp from './components/Auth/SignUp'
 import PrivateRoute from './components/Auth/PrivateRoute'
 import HomePage from './components/Home/HomePage'
 import PrivateJokes from './components/PrivateJokes/privateJokes'
-import UpdateUser from './components/UpdateUser/updateUser'
+import UpdateUser from './components/UpdateUser/update'
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
         )}
       />
       <Route
-        path='/update-user'
+        path='/update_user'
         render={props => (
           <UpdateUser {...props} />
         )}
