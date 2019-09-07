@@ -4,7 +4,7 @@ export const LOGOUT_START = 'LOGOUT_START'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'
 
-export const logout = user => dispatch => {
+export const logout = () => dispatch => {
   dispatch({ type: LOGOUT_START })
   axios
     .delete('http://localhost:4000/api/auth/logout')

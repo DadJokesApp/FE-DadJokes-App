@@ -16,6 +16,18 @@ import {
   LOGOUT_FAILURE,
 } from '../actions/logoutAction'
 
+import {
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
+} from '../actions/updateUser'
+
+import {
+  DELETE_USER_START,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
+} from '../actions/deleteUser'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -27,6 +39,10 @@ const initialState = {
   addingUser: false,
   addedUser: false,
   active: false,
+  updating: false,
+  updated: false,
+  deleting: false,
+  deleted: false,
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -101,6 +117,54 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: 'Logout failed',
+      }
+
+    // Update user 💁
+    case UPDATE_USER_START:
+      return {
+        ...state,
+        updating: true,
+        updated: false,
+        error: '',
+      }
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        updating: false,
+        updated: true,
+        user: action.payload.user,
+        token: action.payload.data.token,
+        error: '',
+      }
+    case UPDATE_USER_FAILURE:
+      return {
+        ...state,
+        updated: false,
+        error: 'FAILED to register',
+      }
+
+    // Delete user
+    case DELETE_USER_START:
+      return {
+        ...state,
+        updating: true,
+        updated: false,
+        error: '',
+      }
+    case DELETE_USER_SUCCESS:
+      return {
+        ...state,
+        updating: false,
+        updated: true,
+        user: action.payload.user,
+        token: action.payload.data.token,
+        error: '',
+      }
+    case DELETE_USER_FAILURE:
+      return {
+        ...state,
+        updated: false,
+        error: 'FAILED to register',
       }
 
     default:
