@@ -16,6 +16,12 @@ import {
   LOGOUT_FAILURE,
 } from '../actions/logoutAction'
 
+import {
+  GET_JOKES_START,
+  GET_JOKES_SUCCESS,
+  GET_JOKES_FAILURE,
+} from '../actions/getJokes'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -26,6 +32,7 @@ const initialState = {
   user: jwt.decode(localStorage.getItem('token')),
   addingUser: false,
   addedUser: false,
+  jokes: [{joke: "This is a joke"}]
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -101,6 +108,18 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: 'Logout failed',
       }
+
+    case GET_JOKES_SUCCESS:
+      return {
+        ...state,
+        jokes: action.payload
+      }
+
+    case GET_JOKES_FAILURE:
+        return {
+          ...state,
+           error: action.payload
+         }
 
     default:
       return state

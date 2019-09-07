@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../Nav/NavBar'
+import JokeFeed from '../Jokes/JokeFeed'
 import './home.css'
 
 import { connect } from 'react-redux'
@@ -23,6 +24,7 @@ class HomePage extends React.Component {
         <div>
           <p>Recent joke feed</p>
         </div>
+        <JokeFeed jokes={this.props.jokes} />
       </div>
     )
   }
@@ -31,6 +33,7 @@ class HomePage extends React.Component {
 const mapStateToProps = state => {
   return {
       user: state.user,
+      jokes: state.jokes
   }
 }
 
