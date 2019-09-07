@@ -2,12 +2,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+
 html {
   font-size: 62.5%;
 }
 
 body {
   background: #32599F;
+  font-family: 'Livvic', sans-serif;
 }
 
 h1 {
@@ -22,6 +25,10 @@ h2, h3, h4 {
 
 h2 {
   font-size: 3rem;
+}
+
+div {
+  font-family: 'Livvic', sans-serif;
 }
 
 button {
@@ -61,4 +68,8 @@ button {
   width: 120px;
   border-radius: 60px;
   border: 2px solid #2F2F2F;
+}
+
+a:hover {
+  text-decoration: none;
 }

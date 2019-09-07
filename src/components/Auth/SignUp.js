@@ -62,6 +62,14 @@ class SignUp extends React.Component {
           </Input>
 
           <Input
+            type='text'
+            name='img_url'
+            value={this.state.newUser.img_url}
+            placeholder='Profile image URL'
+            onChange={this.handleInputChange}>
+          </Input>
+
+          <Input
             type='password'
             name='password'
             value={this.state.newUser.password}

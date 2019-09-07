@@ -1,6 +1,7 @@
 import React from 'react'
-
 import './landing.css'
+
+import PublicJokes from './PublicJokes'
 
 import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
@@ -27,6 +28,10 @@ const LandingPage = () => {
             <Button className='grn'>Login here!</Button>
           </Link>
         </div>
+        
+      </div>
+      <div className='public-jokes-wrapper'>
+        <PublicJokes />
       </div>
     </div>
   )
