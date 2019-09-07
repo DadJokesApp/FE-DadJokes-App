@@ -1,18 +1,18 @@
 import React from 'react';
 import Joke from './Joke';
 import './jokes.css';
-//const jokes = require('./jokes.js');  // for testing, remove when done
 
 import { connect } from 'react-redux'
 
-
-
 class JokeFeed extends React.Component {
     render () {
+
+        // this comes in as an empty array
         console.log('this.props.jokes', this.props.jokes);
-        console.log('this.state', this.state);
+        
+        // this seems to be correct
         console.log('user', this.props.user);
-        console.log('isLoggedIn', this.props.isLoggedIn);
+
 
         return (
             <div className="joke-feed">

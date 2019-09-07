@@ -1,3 +1,5 @@
+// Just an array of jokes for testing, remove when done
+
 module.exports = [
     {
       "id": 1,

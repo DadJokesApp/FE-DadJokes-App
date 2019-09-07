@@ -32,7 +32,7 @@ const initialState = {
   user: jwt.decode(localStorage.getItem('token')),
   addingUser: false,
   addedUser: false,
-  jokes: [{joke: "This is a joke"}]
+  jokes: []
 }
 
 const rootReducer = (state = initialState, action) => {
