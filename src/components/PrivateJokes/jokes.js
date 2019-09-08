@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Joke = ({ jokes }) => {
+const Jokes = ({ jokes }) => {
   return (
     <div>
       {jokes.map(joke => {
@@ -15,4 +15,4 @@ const Joke = ({ jokes }) => {
   )
 }
 
-export default Joke
+export default Jokes

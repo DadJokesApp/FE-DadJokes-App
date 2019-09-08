@@ -1,5 +1,5 @@
 import React from 'react'
-import Joke from './joke'
+import Jokes from './jokes'
 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -17,7 +17,7 @@ class PrivateJokes extends React.Component {
         <Link to='/home'>
           <h2>All jokes component</h2>
         </Link>
-        <Joke jokes={this.props.jokes} />
+        <Jokes jokes={this.props.jokes} user={this.props.user} />
       </div>
     )
   }
