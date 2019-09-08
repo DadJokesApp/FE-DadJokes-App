@@ -16,6 +16,24 @@ import {
   LOGOUT_FAILURE,
 } from '../actions/logoutAction'
 
+import {
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
+} from '../actions/updateUser'
+
+import {
+  DELETE_USER_START,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
+} from '../actions/deleteUser'
+
+import {
+  GET_JOKES_START,
+  GET_JOKES_SUCCESS,
+  GET_JOKES_FAILURE,
+} from '../actions/getJokes'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -24,8 +42,14 @@ const initialState = {
   isLoggingIn: false,
   token: localStorage.getItem('token'),
   user: jwt.decode(localStorage.getItem('token')),
+  jokes: [],
   addingUser: false,
   addedUser: false,
+  active: false,
+  updating: false,
+  updated: false,
+  deleting: false,
+  deleted: false,
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -53,7 +77,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         isLoggingIn: false,
         isLoggedIn: false,
-        error: 'FAILED to login',
+        error: action.payload,
       }
 
     // Register reducer 🦆
@@ -77,7 +101,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         addedUser: false,
-        error: 'FAILED to register',
+        error: action.payload,
       }
 
     // Logout reducer 🚀
@@ -99,7 +123,79 @@ const rootReducer = (state = initialState, action) => {
     case LOGOUT_FAILURE:
       return {
         ...state,
-        error: 'Logout failed',
+        error: action.payload,
+      }
+
+    // Update user 💁
+    case UPDATE_USER_START:
+      return {
+        ...state,
+        updating: true,
+        updated: false,
+        error: '',
+      }
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        updating: false,
+        updated: true,
+        user: action.payload.user,
+        token: action.payload.data.token,
+        error: '',
+      }
+    case UPDATE_USER_FAILURE:
+      return {
+        ...state,
+        updated: false,
+        error: action.payload,
+      }
+
+    // Delete user
+    case DELETE_USER_START:
+      return {
+        ...state,
+        updating: true,
+        updated: false,
+        error: '',
+      }
+    case DELETE_USER_SUCCESS:
+      return {
+        ...state,
+        updating: false,
+        updated: true,
+        user: action.payload.user,
+        token: action.payload.data.token,
+        error: '',
+      }
+    case DELETE_USER_FAILURE:
+      return {
+        ...state,
+        updated: false,
+        error: action.payload,
+      }
+
+    // Get all jokes 😆
+    case GET_JOKES_START:
+      return {
+        ...state,
+        gettingJokes: true,
+        gotJokes: false,
+        error: '',
+      }
+
+    case GET_JOKES_SUCCESS:
+      return {
+        ...state,
+        gettingJokes: false,
+        gotJokes: true,
+        jokes: action.payload,
+        error: '',
+      }
+
+    case GET_JOKES_FAILURE:
+      return {
+        ...state,
+        error: '',
       }
 
     default:

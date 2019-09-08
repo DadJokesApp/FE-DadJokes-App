@@ -16,7 +16,7 @@ class HomePage extends React.Component {
           <img className='profile-pic' src={this.props.user.img_url} alt='profile pic' />
           <h3 className='profile-heading'>Welcome to DadJokes, {this.props.user.username}!</h3>
           <div className='profile-links'>
-            <Link to='/update-user'>Edit Profile</Link>
+            <Link to='/update_user'>Edit Profile</Link>
             <Link to='/jokes'>Veiw Joke Feed</Link>
           </div>
         </div>
