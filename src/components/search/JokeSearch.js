@@ -1,36 +1,46 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import JokeList from '../Landing/PublicJokes'
 
 
 
-class SearchForm extends Component {
-    state = {jokes: '', searchText: ''}
- 
-    onSearchSubmit = (event) => {
-        event.preventDefault();
-        axios.get('https://dadjokes-backend.herokuapp.com/api/jokes/public')
-        .then (response => {
-            this.setState({jokes: response.data.filter(joke => {
-                return joke.joke.toLowerCase().includes(this.state.searchText.toLowerCase())
-            })})
-            this.props.searchJoke(this.state.jokes)
+
+
+export class JokeSearch extends Component {
+    constructor() {
+        super();
+        this.state = {
+          search: "",
+          jokes: [],
+          isFetchingJokes: true
+        };
+      }
+    
+        // this.onSearchChange = this.onSearchChange.bind(this);
+        // this.searchJokes = this.searchJokes.bind(this);
+
+      searchHandler = e => {
+        this.setState({
+          [e.target.name]: e.target.value
         })
+      }
+
+      componentDidMount() {
+        this.setState({
+          jokes: jokes
+        })
+      }
+
+      er() {
+        console.log(this.state.search);
+      }
+      render() {
+      return (
+        <div>
+          <JokeSearch 
+          searchHandle={this.searchHandler} 
+          value={this.state.search} />
+          <JokeList postProps={this.state.jokes} />
+        </div>
+      )
     }
-
-    render(){
-        return(
-            <div className= "ui segment">
-                <form onSubmit={this.onSearchSubmit} className="ui form">
-                    <div className ="field">
-                        <h1><label htmlFor="search">Search Jokes</label></h1>
-                    </div>
-                    <input type = "text" value={this.state.searchText} onChange={(e) => this.setState({searchText: e.target.value})} ></input>
-                </form>
-
-            </div>
-        )
-    }
-}
-
-
-export default SearchForm
+  }
