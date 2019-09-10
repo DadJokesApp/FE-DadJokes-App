@@ -34,6 +34,18 @@ import {
   GET_JOKES_FAILURE,
 } from '../actions/getJokes'
 
+import {
+  GET_PUBLIC_START,
+  GET_PUBLIC_SUCCESS,
+  GET_PUBLIC_FAILURE,
+} from '../actions/publicJokes'
+
+import {
+  GET_USER_JOKES_START,
+  GET_USER_JOKES_SUCCESS,
+  GET_USER_JOKES_FAILURE,
+} from '../actions/userJokes'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -43,6 +55,7 @@ const initialState = {
   token: localStorage.getItem('token'),
   user: jwt.decode(localStorage.getItem('token')),
   jokes: [],
+  publicJokes: [],
   addingUser: false,
   addedUser: false,
   active: false,
@@ -50,6 +63,9 @@ const initialState = {
   updated: false,
   deleting: false,
   deleted: false,
+  gettingJokes: false,
+  gotJokes: false,
+  userJokes: [],
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -193,6 +209,54 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case GET_JOKES_FAILURE:
+      return {
+        ...state,
+        error: '',
+      }
+
+    // Get public jokes 😆
+    case GET_PUBLIC_START:
+      return {
+        ...state,
+        gettingJokes: true,
+        gotJokes: false,
+        error: '',
+      }
+
+    case GET_PUBLIC_SUCCESS:
+      return {
+        ...state,
+        gettingJokes: false,
+        gotJokes: true,
+        publicJokes: action.payload,
+        error: '',
+      }
+
+    case GET_PUBLIC_FAILURE:
+      return {
+        ...state,
+        error: '',
+      }
+
+    // GET user jokes
+    case GET_USER_JOKES_START:
+      return {
+        ...state,
+        gettingJokes: true,
+        gotJokes: false,
+        error: '',
+      }
+
+    case GET_USER_JOKES_SUCCESS:
+      return {
+        ...state,
+        gettingJokes: false,
+        gotJokes: true,
+        userJokes: action.payload,
+        error: '',
+      }
+
+    case GET_USER_JOKES_FAILURE:
       return {
         ...state,
         error: '',
