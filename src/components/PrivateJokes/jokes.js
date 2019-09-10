@@ -2,12 +2,12 @@ import React from 'react'
 
 const Jokes = ({ jokes }) => {
   return (
-    <div>
+    <div className='joke-wrapper'>
       {jokes.map(joke => {
         return (
-          <div key={joke.id}>
-            <h6>{joke.joke}</h6>
-            <h6>{joke.punchline}</h6>
+          <div key={joke.id} className='indi-joke'>
+            <h6 className='joke'>{joke.joke}</h6>
+            <h6 className='punchline'>{joke.punchline}</h6>
           </div>
         )
       })}
