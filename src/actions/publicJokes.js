@@ -4,7 +4,7 @@ export const GET_PUBLIC_START = 'GET_PUBLIC_START'
 export const GET_PUBLIC_SUCCESS = 'GET_PUBLIC_SUCCESS'
 export const GET_PUBLIC_FAILURE = 'GET_PUBLIC_FAILURE'
 
-export const getPublic = () => dispatch => {
+export const getPublicJokes = () => dispatch => {
   dispatch({ type: GET_PUBLIC_START })
   axios
     .get('http://localhost:4000/api/jokes/public')
@@ -19,3 +19,4 @@ export const getPublic = () => dispatch => {
       dispatch({ type: GET_PUBLIC_FAILURE, payload: err })
     })
 }
+

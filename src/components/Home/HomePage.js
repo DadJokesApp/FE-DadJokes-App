@@ -1,5 +1,7 @@
 import React from 'react'
 import NavBar from '../Nav/NavBar'
+import UserJokes from './UserJokes'
+import { getUserJokes } from '../../actions/userJokes'
 import './home.css'
 
 import { connect } from 'react-redux'
@@ -7,6 +9,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class HomePage extends React.Component {
+  // componentDidMount() {
+  //   this.props.getUserJokes()
+  // }
   render() {
     console.log(`Image URL: ${this.props.user.img_url}`)
     return (
@@ -21,7 +26,7 @@ class HomePage extends React.Component {
           </div>
         </div>
         <div>
-          <p>Recent joke feed</p>
+          <UserJokes user={this.props.user} userJokes={this.props.userJokes} />
         </div>
       </div>
     )
@@ -31,10 +36,11 @@ class HomePage extends React.Component {
 const mapStateToProps = state => {
   return {
       user: state.user,
+      userJokes: state.userJokes,
   }
 }
 
 export default connect(
   mapStateToProps,
-  { }
+  { getUserJokes }
 )(HomePage)
