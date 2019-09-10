@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
+import '../Landing/JokeList.css';
 
 
 class SearchForm extends Component {
@@ -31,6 +32,12 @@ class SearchForm extends Component {
         )
     }
 }
+const mapStateToProps = state =>{
+    return {
+        publicJokes: state.publicJokes
+        
+    
+    }
+}
 
-
-export default SearchForm
+export default connnect(mapStateToProps, {getPublicJokes})(SearchForm)

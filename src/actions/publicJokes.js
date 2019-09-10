@@ -19,3 +19,14 @@ export const getPublicJokes = () => dispatch => {
       dispatch({ type: GET_PUBLIC_FAILURE, payload: err })
     })
 }
+
+export const onSearchSubmit = (event) => dispatch => {
+  dispatch({ type: GET_PUBLIC_START})
+  axios.get('https://dadjokes-backend.herokuapp.com/api/jokes/public')
+  .then(response => {
+    
+  })
+
+
+  
+}
