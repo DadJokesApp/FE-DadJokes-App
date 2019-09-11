@@ -19,3 +19,88 @@
   margin-top: 15px;
   font-size: 3rem;
 }
+
+.joke {
+  background: #B2CEF1;
+  border-radius: 3px;
+  margin: 0;
+}
+
+.joke-meat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5px 0;
+  padding: 3px 3px;
+}
+
+.punchline {
+  text-align: center;
+  background: #2F2F2F;
+  color: #B2CEF1;
+  width: 42%;
+  /* margin-right: 12px; */
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: none; */
+}
+
+.joke-username {
+  margin-right: 5px;
+  color: #013D63;
+  font-weight: bold;
+}
+
+.joke-joke {
+  color: #305392;
+}
+
+.joke img {
+  background: #67A9ED;
+  width: 40px;
+  border-radius: 20px;
+  border: 2px solid #2F2F2F;
+  margin-right: 5px;
+}
+
+.joke h6 {
+  font-size: 2rem;
+}
+
+.private-jokes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.private-jokes-wrapper h2 {
+  color: #FFD69F;
+}
+
+.joke-joke, .joke-punchline {
+  font-size: 1.6rem;
+}
+
+.reveal {
+  display: flex;
+  justify-content: space-around;
+}
+
+.indi-joke .reveal {
+  margin: 0;
+}
+
+.indi-joke .reveal button {
+  margin: 0;
+}
+
+.reveal img {
+  width: 40px;
+}
+
+#hidden {
+  display: none;
+}
