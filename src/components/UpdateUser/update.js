@@ -88,15 +88,12 @@ class UpdateUser extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // updating: state.updating,
-    // updated: state.updated,
-    // deleting: state.deleting,
-    // deleted: state.deleted,
     user: state.user,
   }
 }
 
 export default connect(
   mapStateToProps,
+  // null,
   { updateUser, deleteUser }
 )(UpdateUser)

@@ -13,11 +13,13 @@
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  width: 482px;
 }
 
 .profile-heading {
   margin-top: 15px;
-  font-size: 3rem;
+  font-size: 4rem;
+  color: #FBFBFB;
 }
 
 .joke {
@@ -86,7 +88,7 @@
 
 .reveal {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .indi-joke .reveal {
@@ -101,6 +103,36 @@
   width: 40px;
 }
 
+.btn-jokes {
+  height: 45px;
+  margin: 0;
+}
+
 #hidden {
   display: none;
+}
+
+.profile-links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-links button {
+  border-radius: 5px;
+  color: #FB902E;
+}
+
+.profile-links a {
+  color: #FB902E;
+}
+
+.profile-links a:hover {
+  color: #FFEBCF;
+}
+
+.reveal {
+  font-size: 2.4rem;
+  font-family: 'Cookie', cursive;
+  height: 45px;
 }

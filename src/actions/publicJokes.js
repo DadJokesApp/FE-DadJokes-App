@@ -13,9 +13,6 @@ export const getPublicJokes = () => dispatch => {
       dispatch({ type: GET_PUBLIC_SUCCESS, payload: res.data })
     })
     .catch(err => {
-      if (err.response.status === 403) {
-      localStorage.removeItem('token')
-      }
       dispatch({ type: GET_PUBLIC_FAILURE, payload: err })
     })
 }

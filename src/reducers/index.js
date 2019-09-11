@@ -52,6 +52,24 @@ import {
   GET_JOKE_COMMENTS_FAILURE,
 } from '../actions/getJokeComments'
 
+import {
+  GET_JOKE_BY_ID_START,
+  GET_JOKE_BY_ID_SUCCESS,
+  GET_JOKE_BY_ID_FAILURE,
+} from '../actions/getJokeById'
+
+import {
+  UPDATE_JOKE_START,
+  UPDATE_JOKE_SUCCESS,
+  UPDATE_JOKE_FAILURE,
+} from '../actions/updateJoke'
+
+import {
+  NEW_JOKE_START,
+  NEW_JOKE_SUCCESS,
+  NEW_JOKE_FAILURE,
+} from '../actions/newJoke'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -61,8 +79,11 @@ const initialState = {
   token: localStorage.getItem('token'),
   user: jwt.decode(localStorage.getItem('token')),
   jokes: [],
+  joke: [],
   publicJokes: [],
   jokeComments: [],
+  newJoke: [],
+  userJokes: [],
   addingUser: false,
   addedUser: false,
   active: false,
@@ -72,7 +93,10 @@ const initialState = {
   deleted: false,
   gettingJokes: false,
   gotJokes: false,
-  userJokes: [],
+  gettingJoke: false,
+  gotJoke: false,
+  addingJoke: false,
+  addedJoke: false,
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -291,6 +315,76 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: '',
+      }
+
+    // GET joke by ID
+    case GET_JOKE_BY_ID_START:
+      return {
+        ...state,
+        gettingJoke: true,
+        gotJoke: false,
+        error: '',
+      }
+
+    case GET_JOKE_BY_ID_SUCCESS:
+      return {
+        ...state,
+        gettingJoke: false,
+        gotJoke: true,
+        joke: action.payload,
+        error: '',
+      }
+
+    case GET_JOKE_BY_ID_FAILURE:
+      return {
+        ...state,
+        error: '',
+      }
+
+      // Update joke 💁
+    case UPDATE_JOKE_START:
+      return {
+        ...state,
+        updating: true,
+        updated: false,
+        error: '',
+      }
+    case UPDATE_JOKE_SUCCESS:
+      return {
+        ...state,
+        updating: false,
+        updated: true,
+        joke: action.payload,
+        error: '',
+      }
+    case UPDATE_JOKE_FAILURE:
+      return {
+        ...state,
+        updated: false,
+        error: action.payload,
+      }
+
+    // New joke reducer 🦆
+    case NEW_JOKE_START:
+      return {
+        ...state,
+        addingJoke: true,
+        addedJoke: false,
+        error: '',
+      }
+    case NEW_JOKE_SUCCESS:
+      return {
+        ...state,
+        addingJoke: false,
+        addedJoke: true,
+        newJoke: action.payload,
+        error: '',
+      }
+    case NEW_JOKE_FAILURE:
+      return {
+        ...state,
+        addedJoke: false,
+        error: action.payload,
       }
 
     default:

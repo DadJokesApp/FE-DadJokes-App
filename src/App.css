@@ -63,6 +63,18 @@ button {
   border: 3px solid #DF6668;
 }
 
+.org {
+  color: #FB902E;
+  background: #FFEBCF;
+  border: 3px solid #FB902E;
+}
+
+.org:hover {
+  color: #FFEBCF;
+  background: #FB902E;
+  border: 3px solid #FFEBCF;
+}
+
 .profile-pic {
   background: #67A9ED;
   width: 120px;

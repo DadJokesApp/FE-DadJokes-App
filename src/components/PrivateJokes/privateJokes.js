@@ -7,24 +7,12 @@ import { connect } from 'react-redux'
 import { getJokes } from '../../actions/getJokes'
 
 class PrivateJokes extends React.Component {
-  state = {
-    hidden: true,
-    joke_id: null
-  }
-
-  toggleReveal = this.toggleReveal.bind(this)
-
-  toggleReveal() {
-    this.setState({
-      hidden: !this.state.hidden
-    })
-  }
-
   componentDidMount() {
     this.props.getJokes()
   }
   
   render() {
+    // console.log(`Revealed: ${this.props.jokes.joke}`)
     return (
       <div className='private-jokes-wrapper'>
         <NavBar />
@@ -33,8 +21,8 @@ class PrivateJokes extends React.Component {
         </Link>
         <Jokes 
           jokes={this.props.jokes} 
-          toggleReveal={this.toggleReveal} 
-          hidden={this.state.hidden} />
+          // toggleReveal={this.toggleReveal} 
+          />
       </div>
     )
   }

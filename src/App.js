@@ -10,7 +10,9 @@ import PrivateRoute from './components/Auth/PrivateRoute'
 import HomePage from './components/Home/HomePage'
 import PrivateJokes from './components/PrivateJokes/privateJokes'
 import UpdateUser from './components/UpdateUser/update'
+import UpdateJoke from './components/UpdateJoke/updateJoke'
 import Joke from './components/Joke/joke'
+import NewJoke from './components/NewJoke/newJoke'
 
 function App() {
   return (
@@ -51,7 +53,7 @@ function App() {
       />
       <Route
         path='/jokes/:id'
-        // exact
+        exact
         render={props => (
           <Joke {...props} />
         )}
@@ -60,6 +62,19 @@ function App() {
         path='/update_user'
         render={props => (
           <UpdateUser {...props} />
+        )}
+      />
+      <Route
+        path='/jokes/:id/update_joke'
+        // exact
+        render={props => (
+          <UpdateJoke {...props} />
+        )}
+      />
+      <Route
+        path='/new_joke'
+        render={props => (
+          <NewJoke {...props} />
         )}
       />
     </div>
