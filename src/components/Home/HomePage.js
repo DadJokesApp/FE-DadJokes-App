@@ -9,9 +9,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class HomePage extends React.Component {
-  // componentDidMount() {
-  //   this.props.getUserJokes()
-  // }
+  componentDidMount() {
+    this.props.getUserJokes(this.props.user.id)
+  }
   render() {
     console.log(`Image URL: ${this.props.user.img_url}`)
     return (

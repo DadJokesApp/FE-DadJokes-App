@@ -46,6 +46,12 @@ import {
   GET_USER_JOKES_FAILURE,
 } from '../actions/userJokes'
 
+import {
+  GET_JOKE_COMMENTS_START,
+  GET_JOKE_COMMENTS_SUCCESS,
+  GET_JOKE_COMMENTS_FAILURE,
+} from '../actions/getJokeComments'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -56,6 +62,7 @@ const initialState = {
   user: jwt.decode(localStorage.getItem('token')),
   jokes: [],
   publicJokes: [],
+  jokeComments: [],
   addingUser: false,
   addedUser: false,
   active: false,
@@ -257,6 +264,30 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case GET_USER_JOKES_FAILURE:
+      return {
+        ...state,
+        error: '',
+      }
+
+    // GET joke comments
+    case GET_JOKE_COMMENTS_START:
+      return {
+        ...state,
+        gettingComments: true,
+        gotComments: false,
+        error: '',
+      }
+
+    case GET_JOKE_COMMENTS_SUCCESS:
+      return {
+        ...state,
+        gettingComments: false,
+        gotComments: true,
+        jokeComments: action.payload,
+        error: '',
+      }
+
+    case GET_JOKE_COMMENTS_FAILURE:
       return {
         ...state,
         error: '',

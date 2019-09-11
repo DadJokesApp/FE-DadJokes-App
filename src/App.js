@@ -10,6 +10,7 @@ import PrivateRoute from './components/Auth/PrivateRoute'
 import HomePage from './components/Home/HomePage'
 import PrivateJokes from './components/PrivateJokes/privateJokes'
 import UpdateUser from './components/UpdateUser/update'
+import Joke from './components/Joke/joke'
 
 function App() {
   return (
@@ -43,8 +44,16 @@ function App() {
       />
       <Route
         path='/jokes'
+        exact
         render={props => (
           <PrivateJokes {...props} />
+        )}
+      />
+      <Route
+        path='/jokes/:id'
+        // exact
+        render={props => (
+          <Joke {...props} />
         )}
       />
       <Route
