@@ -4,10 +4,10 @@ export const GET_USER_JOKES_START = 'GET__USER_JOKES_START'
 export const GET_USER_JOKES_SUCCESS = 'GET_USER_JOKES_SUCCESS'
 export const GET_USER_JOKES_FAILURE = 'GET_USER_JOKES_FAILURE'
 
-export const getUserJokes = user_id => dispatch => {
+export const getUserJokes = joke_id => dispatch => {
   dispatch({ type: GET_USER_JOKES_START })
   axios
-    .get(`http://localhost:4000/api/users/${user_id}/jokes`)
+    .get(`http://localhost:4000/api/users/${joke_id}/jokes`)
     // .get(`https://dadjokes-backend.herokuapp.com/api/users/${user_id}/jokes`)
     .then(res => {
       dispatch({ type: GET_USER_JOKES_SUCCESS, payload: res.data })

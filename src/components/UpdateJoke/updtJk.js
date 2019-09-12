@@ -11,19 +11,39 @@ import { Form, Input, Button } from 'reactstrap'
 class UpdtJk extends React.Component {
   constructor(props) {
     super(props)
-    // const { joke } = this.props
-    console.log(`Joke: ${this.props.joke.id}`)
     this.state = {
       updatedJoke: {
         id: `${this.props.joke.id}`,
         joke: `${this.props.joke.joke}`,
         punchline: `${this.props.joke.punchline}`,
-        // revealed: `${this.props.joke.revealed}`,
-        // laughs: `${this.props.joke.laughs}`
+        revealed: `${this.props.joke.revealed}`,
+        laughs: `${this.props.joke.laughs}`
       }
     }
   }
 
+  
+
+  componentDidMount() {
+    console.log(this.props)
+    const result = this.props.getJokeById(this.props.match.params.id)
+    // result = async () => await this.props.getJokeById(this.props.match.params.id)
+    // console.log(result())
+    // console.log(`Jokie joke: ${this.props.joke.joke}`)
+    // this.setState({
+    //   updatedJoke: {
+    //     id: `${this.props.joke.id}`,
+    //     joke: `${this.props.joke.joke}`,
+    //     punchline: `${this.props.joke.punchline}`,
+    //     revealed: `${this.props.joke.revealed}`,
+    //     laughs: `${this.props.joke.laughs}`
+    //   }
+    // })
+  }
+
+  
+  
+  // console.log(result)
   handleInputChange = e => {
     this.setState({
       updatedJoke: {
@@ -42,12 +62,14 @@ class UpdtJk extends React.Component {
   }
 
   render() {
-    const { joke } = this.props
-    console.log(joke.id)
+    // const { joke } = this.props
+    console.log(this.props)
+    // console.log(this.state.updatedJoke)
+    // this.result().then(result => console.log(result))
     return (
       <div className='update_form_wrapper'>
-        { console.log(this.state.updatedJoke) }
-        {/* { console.log(this.props.joke.joke) } */}
+        {  }
+        {  }
         <Form onSubmit={this.handleSubmit}>
           <div className='key_value_pears'> {/* 🔑🍐 */}
             <h5>Joke:</h5>

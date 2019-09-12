@@ -13,11 +13,11 @@ class UpdateJoke extends React.Component {
   //   super(props)
   //   this.state = {
   //     updatedJoke: {
-  //       id: `${this.props.joke.id}`,
-  //       joke: `${this.props.joke.joke}`,
-  //       punchline: `${this.props.joke.punchline}`,
-  //       revealed: `${this.props.joke.revealed}`,
-  //       laughs: `${this.props.joke.laughs}`
+  //       id: `${this.props.location.state.joke.id}`,
+  //       joke: `${this.props.location.state.joke.joke}`,
+  //       punchline: `${this.props.location.state.joke.punchline}`,
+  //       revealed: `${this.props.location.state.joke.revealed}`,
+  //       laughs: `${this.props.location.state.joke.laughs}`
   //     }
   //   }
   // }
@@ -28,7 +28,7 @@ class UpdateJoke extends React.Component {
 
   render() {
     // const {  joke } = this.props
-    // console.log(joke)
+    console.log(this.props.location)
     return (
       <div className='update_form_wrapper'>
         {/* { console.log(this.state.updatedJoke) } */}
@@ -37,7 +37,7 @@ class UpdateJoke extends React.Component {
           <h2>Update joke form</h2>
         </Link>
         <UpdtJk 
-          // {...props} 
+          {...this.props}
           // handleInputChange={this.handleInputChange}
           // handleSubmit={this.handleSubmit}
           // joke={this.props.joke} 
