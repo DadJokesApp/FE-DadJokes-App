@@ -1,0 +1,30 @@
+.comment {
+  display: flex;
+  background: #013D63;
+  color: #D8E7F8;
+  margin-top: 5px;
+  padding: 5px;
+  align-items: center;
+}
+
+.comment-pic {
+  background: #67A9ED;
+  width: 40px;
+  border-radius: 20px;
+  border: 2px solid #2F2F2F;
+}
+
+.comment-username {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.comment-comment {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-size: 1.6rem;
+}
+
+.btn-joke {
+  font-size: 2.2rem;
+}

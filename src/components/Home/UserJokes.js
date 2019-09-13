@@ -4,6 +4,7 @@ import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const laugh = <FontAwesomeIcon icon={faLaughSquint} />
 const comment = <FontAwesomeIcon icon={faComment} />
@@ -11,6 +12,7 @@ const comment = <FontAwesomeIcon icon={faComment} />
 const UserJokes = ({ userJokes }) => {
   return (
     <div className='joke-wrapper'>
+      {console.log(userJokes)}
       {userJokes.map(joke => {
         return (
           <div key={joke.id} className='indi-joke'>
@@ -28,7 +30,12 @@ const UserJokes = ({ userJokes }) => {
               </div>
               <Button>{comment} 5</Button>
               <Button>{laugh} 56</Button>
-              <Button>Reveal Punchline!</Button>
+              <Button>
+                <Link to={{pathname:`/jokes/${joke.id}/update_joke`, state: this.props.joke.id}}>
+                  Update Joke!
+                </Link>
+                
+              </Button>
             </div>
           </div>
         )
