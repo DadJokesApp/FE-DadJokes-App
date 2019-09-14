@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const ADD_JOKE_START = '';
-export const ADD_JOKE_SUCCESS = '';
-export const ADD_JOKE_FAILURE = '';
+export const ADD_JOKE_START = 'ADD_JOKE_START';
+export const ADD_JOKE_SUCCESS = 'ADD_JOKE_SUCCESS';
+export const ADD_JOKE_FAILURE = 'ADD_JOKE_FAILURE';
 
 
 export const addJoke = joke => dispatch => {
