@@ -10,8 +10,8 @@ export const updateUser = updatedUser => dispatch => {
   console.log('User: ', updatedUser)
   dispatch({ type: UPDATE_USER_START })
   return axios
-    .put(`http://localhost:4000/api/users/${updatedUser.id}`, updatedUser)
-    // .put('https://dadjokes-backend.herokuapp.com/api/users/${updatedUser.id}`, updatedUser)
+    // .put(`http://localhost:4000/api/users/${updatedUser.id}`, updatedUser)
+    .put(`https://dadjokes-backend.herokuapp.com/api/users/${updatedUser.id}`, updatedUser)
     .then(res => {
       const token = res.data.token
       console.log(`Token: ${res.data.user}`)

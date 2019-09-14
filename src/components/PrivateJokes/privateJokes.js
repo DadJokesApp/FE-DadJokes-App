@@ -17,7 +17,7 @@ class PrivateJokes extends React.Component {
       <div className='private-jokes-wrapper'>
         <NavBar />
         <Link to='/home'>
-          <h2>All jokes component</h2>
+          <h2>Joke Feed</h2>
         </Link>
         <Jokes 
           jokes={this.props.jokes} 

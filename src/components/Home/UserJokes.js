@@ -28,8 +28,15 @@ const UserJokes = ({ userJokes }) => {
               <div className='punchline'>
                 <div className='joke-punchline'>{joke.punchline}</div>
               </div>
-              <Button className='comments'>{comment} Comment's</Button>
-              <Button className='laughs'>{laugh} {`${joke.laughs}`}</Button>
+              <Button 
+                className='laughs'>
+                {laugh} {`${joke.laughs}`}
+              </Button>
+              <Button 
+              href={`/jokes/${joke.id}`}
+                className='comments'>
+                {comment} Comment's
+              </Button>
               <Button 
                 className='update-joke-btn'
                 href={`/jokes/${joke.id}/update_joke`}>

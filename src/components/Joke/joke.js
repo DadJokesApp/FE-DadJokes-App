@@ -41,7 +41,7 @@ class Joke extends React.PureComponent {
     this.props
       .addComment(this.state.newComment)
       .then(() => this.props.getJokeComments(this.props.match.params.id))
-      .then(() => this.setState({ newComment: {comment: ''} }))
+      .then(() => this.setState({ newComment: { comment: '' } }))
     
   }
 
@@ -70,10 +70,10 @@ class Joke extends React.PureComponent {
                 {this.props.joke.punchline}
               </div>
             </div>
-            <Button className='btn-joke'>
+            <Button className='comments'>
               {comment} {this.props.jokeComments.length}
             </Button>
-            <Button className='btn-joke'>{laugh} {this.props.joke.laughs}</Button>
+            <Button onClick={this.toggleLaugh} className='laughs'>{laugh} {this.props.joke.laughs}</Button>
           </div>
           {this.props.jokeComments.map(comment => {
             return (
@@ -99,7 +99,6 @@ class Joke extends React.PureComponent {
               onChange={this.handleInputChange}
               value={this.state.newComment.comment}
             />
-            <Button>Comment</Button>
           </Form>
         </div>
       </div>
@@ -112,7 +111,8 @@ const mapStateToProps = state => {
   return {
       joke: state.joke,
       jokeComments: state.jokeComments,
-      user: state.user
+      user: state.user,
+      didLaugh: state.didLaugh
   }
 }
 

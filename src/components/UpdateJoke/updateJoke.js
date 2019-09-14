@@ -1,5 +1,7 @@
 import React from 'react'
+import NavBar from '../Nav/NavBar'
 
+import { Button } from 'reactstrap'
 import { connect } from 'react-redux'
 import { getJokeById } from '../../actions/getJokeById'
 import { updateJoke } from '../../actions/updateJoke'
@@ -17,9 +19,19 @@ class UpdateJoke extends React.Component {
     console.log(this.props.location)
     return (
       <div className='update_form_wrapper'>
-        <Link to='/home'>
-          <h2>Update joke form</h2>
-        </Link>
+        <NavBar />
+        <div className='profile-bar'>
+          <Link to='/home'>
+            <img 
+              className='profile-pic' 
+              src={this.props.user.img_url} 
+              alt='profile pic' 
+            />
+          </Link>
+          <Link to='/home'>
+            <h2>Update joke form</h2>
+          </Link>
+        </div>
         <UpdtJk 
           {...this.props}
           />
@@ -31,6 +43,7 @@ class UpdateJoke extends React.Component {
 const mapStateToProps = state => {
   return {
     joke: state.joke,
+    user: state.user
   }
 }
 

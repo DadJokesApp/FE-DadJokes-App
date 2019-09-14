@@ -1,3 +1,5 @@
-.btn-jokes button {
-  background: red;
+.private-jokes-wrapper h2 {
+  font-size: 6rem;
+  color: #DF6668;
+  text-decoration: underline;
 }

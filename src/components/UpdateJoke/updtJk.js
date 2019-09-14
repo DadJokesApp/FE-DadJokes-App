@@ -21,7 +21,6 @@ class UpdtJk extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.props.getJokeById(this.props.match.params.id)
   }
 
@@ -52,7 +51,7 @@ class UpdtJk extends React.Component {
             <Input 
               type='text'
               name='joke'
-              placeholder='Joke'
+              placeholder={this.props.joke.joke}
               value={this.state.updatedJoke.joke}
               onChange={this.handleInputChange}
             />
@@ -63,13 +62,13 @@ class UpdtJk extends React.Component {
             <Input 
               type='text'
               name='punchline'
-              placeholder='Punchline'
+              placeholder={this.props.joke.punchline}
               value={this.state.updatedJoke.punchline}
               onChange={this.handleInputChange}
             />
           </div>
 
-          <Button>Submit Changes</Button>
+          <Button className='grn'>Submit Changes</Button>
         </Form>
       </div>
     )

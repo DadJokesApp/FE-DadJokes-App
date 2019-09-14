@@ -19,7 +19,7 @@ class Jokes extends React.Component {
       <div className='joke-wrapper'>
         {jokes.map(joke => {
           return (
-            <div key={joke.id}>
+            <div key={joke.id} className='jokes-wrapper'>
               { console.log(`Revealed: ${joke.revealed}`) }
               <Link to={`/jokes/${joke.id}`} key={joke.id}>
                 <div className='joke'>

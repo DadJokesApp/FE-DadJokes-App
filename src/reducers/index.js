@@ -84,8 +84,6 @@ const initialState = {
   isLoggingIn: false,
   token: localStorage.getItem('token'),
   user: jwt.decode(localStorage.getItem('token')),
-  // token: null,
-  // user: null,
   jokes: [],
   joke: [],
   publicJokes: [],
@@ -106,6 +104,7 @@ const initialState = {
   gotJoke: false,
   addingJoke: false,
   addedJoke: false,
+  didLaugh: false,
 }
 
 const rootReducer = (state = initialState, action) => {

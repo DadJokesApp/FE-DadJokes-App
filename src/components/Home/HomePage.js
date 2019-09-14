@@ -33,7 +33,11 @@ class HomePage extends React.Component {
       <div className='home-wrapper'>
         <NavBar />
         <div className='profile-bar'>
-          <img className='profile-pic' src={this.props.user.img_url} alt='profile pic' />
+          <img 
+            className='profile-pic' 
+            src={this.props.user.img_url} 
+            alt='profile pic' 
+          />
           <h3 className='profile-heading'>Welcome to DadJokes, {this.props.user.username}!</h3>
           <div className='profile-links'>
             <Button className='edit-profile-btn'>

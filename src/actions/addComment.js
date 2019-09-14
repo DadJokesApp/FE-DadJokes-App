@@ -8,8 +8,8 @@ export const addComment = newComment => dispatch => {
   console.log("New Comment: ", newComment)
   dispatch({ type: ADD_COMMENT_START })
   return axios
-    .post('http://localhost:4000/api/comments', newComment)
-    // .post('https://dadjokes-backend.herokuapp.com/api/comments', newComment)
+    // .post('http://localhost:4000/api/comments', newComment)
+    .post('https://dadjokes-backend.herokuapp.com/api/comments', newComment)
     .then(res => {
       dispatch({
         type: ADD_COMMENT_SUCCESS,

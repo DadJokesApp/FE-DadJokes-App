@@ -128,12 +128,17 @@
   border: 1px solid #FEC270;
 }
 
+.profile-links button:hover {
+  background: #FEC270;
+  color: #780207;
+}
+
 .profile-links a {
   color: #FEC270;
 }
 
 .profile-links a:hover {
-  color: #FFEBCF;
+  color: #780207;
 }
 
 .reveal {
@@ -142,38 +147,40 @@
   height: 45px;
 }
 
+.reveal button {
+  font-size: 2rem;
+}
+
+.reveal a {
+  font-size: 2.2rem;
+}
+
 .update-joke-btn {
   color: #21A339;
-  background: #FFEBCF;
-  border: 1px solid #21A339;
+  background: #E5F1F9;
 }
 
 .update-joke-btn:hover {
-  color: #FFEBCF;
+  color: #E5F1F9;
   background: #21A339;
-  border: 1px solid #FFEBCF;
 }
 
 .comments {
   color: #FB902E;
-  background: #FFEBCF;
-  border: 1px solid #FB902E;
+  background: #E5F1F9;
 }
 
 .comments:hover {
-  color: #FFEBCF;
+  color: #E5F1F9;
   background: #FB902E;
-  border: 1px solid #FFEBCF;
 }
 
 .laughs {
   color: #FE2D32;
-  background: #FFEBCF;
-  border: 1px solid #FE2D32;
+  background: #E5F1F9;
 }
 
 .laughs:hover {
-  color: #FFEBCF;
+  color: #E5F1F9;
   background: #FE2D32;
-  border: 1px solid #FFEBCF;
 }
