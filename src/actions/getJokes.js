@@ -7,10 +7,9 @@ export const GET_JOKES_FAILURE = 'GET_JOKES_FAILURE'
 export const getJokes = ()  => dispatch => {
   dispatch({ type: GET_JOKES_START })
   axios
-    .get('http://localhost:4000/api/jokes')
-    // .get('https://dadjokes-backend.herokuapp.com/api/jokes')
+    // .get('http://localhost:4000/api/jokes')
+    .get('https://dadjokes-backend.herokuapp.com/api/jokes')
     .then(res => {
-        console.log(res.data)
         dispatch({
           type: GET_JOKES_SUCCESS,
           payload: res.data

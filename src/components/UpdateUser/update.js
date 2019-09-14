@@ -35,7 +35,6 @@ class UpdateUser extends React.Component {
     this.props
       .updateUser(this.state.updatedUser)
       .then(res => (this.props.history.push('/home')))
-    // console.log(this.props.user.id)
   }
 
   render() {

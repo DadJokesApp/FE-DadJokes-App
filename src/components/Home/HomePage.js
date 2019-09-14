@@ -5,29 +5,48 @@ import { getUserJokes } from '../../actions/userJokes'
 import './home.css'
 
 import { connect } from 'react-redux'
-// import { Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
 
 class HomePage extends React.Component {
+  state = {
+    updateJoke: {
+      joke: '',
+      punchline: ''
+    }
+  }
+
   componentDidMount() {
     this.props.getUserJokes(this.props.user.id)
+  }
+
+  handleSubmit() {
+    this.setState({
+      updateJoke: {
+        joke: `${this.props.joke.joke}`,
+        punchline: `${this.props.joke.punchline}`
+      }
+    })
   }
   render() {
     return (
       <div className='home-wrapper'>
         <NavBar />
         <div className='profile-bar'>
-          <img className='profile-pic' src={this.props.user.img_url} alt='profile pic' />
+          <img 
+            className='profile-pic' 
+            src={this.props.user.img_url} 
+            alt='profile pic' 
+          />
           <h3 className='profile-heading'>Welcome to DadJokes, {this.props.user.username}!</h3>
           <div className='profile-links'>
-            <Button className='org home-btn'>
+            <Button className='edit-profile-btn'>
               <Link to='/update_user'>Edit Profile</Link>
             </Button>
-            <Button className='org home-btn'>
-              <Link to='/jokes'>Veiw Joke Feed</Link>
+            <Button className='view-jokes-btn'>
+              <Link to='/jokes'>View Joke Feed</Link>
             </Button>
-            <Button className='org home-btn'>
+            <Button className='post-joke-btn'>
               <Link to='/new_joke'>Post A New Joke!</Link>
             </Button>
           </div>

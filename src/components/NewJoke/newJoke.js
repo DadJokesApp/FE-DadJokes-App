@@ -1,8 +1,9 @@
 import React from 'react'
+import NavBar from '../Nav/NavBar'
+import './newjoke.css'
 
 import { newJoke } from '../../actions/newJoke'
 import { connect } from 'react-redux'
-
 import { Form, Input, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
@@ -11,9 +12,9 @@ class SignUp extends React.Component {
     super(props)
     this.state = {
       newJoke: {
-        username: '',
-        password: '',
-        email: '',
+        joke: '',
+        punchline: '',
+        user_id: `${this.props.user.id}`,
       }
     }
   }
@@ -31,19 +32,25 @@ class SignUp extends React.Component {
     e.preventDefault()
     this.props
       .newJoke(this.state.newJoke)
-      .then(() => this.props.addedUser ? this.props.history.push('/home') : alert('User was not successfully added'))
+      .then(() => this.props.addedJoke 
+        ? this.props.history.push('/home') 
+        : alert('Joke was not successfully added'))
   }
   render() {
     return (
       <div className='signup-wrapper'>
-        <Link to='/'>
-            <h1 className='heading'>DadJokes</h1>
+        <NavBar />
+        <Link to='/home'>
+          <img 
+            className='profile-pic new-joke-img' 
+            src={this.props.user.img_url} 
+            alt='profile pic' 
+          />
         </Link>
-
-        <div className='headline'>
-            <h2>Please sign up here!</h2>
+        <div className='new-joke-headline'>
+          <h2>Got a new DadJoke? Share it here!</h2>
         </div>
-
+        
         <Form onSubmit={this.handleRegister}>
           <Input
             type='text'
@@ -61,7 +68,7 @@ class SignUp extends React.Component {
             onChange={this.handleInputChange}>
           </Input>
 
-          <Button className='red'>Sign Up</Button>
+          <Button className='grn'>Post New Joke</Button>
         </Form>
       </div>
     )
@@ -70,7 +77,9 @@ class SignUp extends React.Component {
 
 const mapStateToProps =state => {
     return {
-        addedUser: state.addedUser,
+        newJoke: state.newJoke,
+        user: state.user,
+        addedJoke: state.addedJoke
     }
 }
 

@@ -23,7 +23,7 @@
 }
 
 .joke {
-  background: #B2CEF1;
+  background: #D8E7F8;
   border-radius: 3px;
   margin: 0;
 }
@@ -51,12 +51,12 @@
 
 .joke-username {
   margin-right: 5px;
-  color: #013D63;
+  color: #222222;
   font-weight: bold;
 }
 
 .joke-joke {
-  color: #305392;
+  color: #013D63;
 }
 
 .joke img {
@@ -105,11 +105,15 @@
 
 .btn-jokes {
   height: 45px;
+  width: 100%;
   margin: 0;
+  background: #222222;
+  color: #E4E3E2;
 }
 
-#hidden {
-  display: none;
+.btn-jokes:hover {
+  background: #FE2D32;
+  color: #F5CCCD;
 }
 
 .profile-links {
@@ -120,19 +124,63 @@
 
 .profile-links button {
   border-radius: 5px;
-  color: #FB902E;
+  background: #780207;
+  border: 1px solid #FEC270;
+}
+
+.profile-links button:hover {
+  background: #FEC270;
+  color: #780207;
 }
 
 .profile-links a {
-  color: #FB902E;
+  color: #FEC270;
 }
 
 .profile-links a:hover {
-  color: #FFEBCF;
+  color: #780207;
 }
 
 .reveal {
   font-size: 2.4rem;
   font-family: 'Cookie', cursive;
   height: 45px;
+}
+
+.reveal button {
+  font-size: 2rem;
+}
+
+.reveal a {
+  font-size: 2.2rem;
+}
+
+.update-joke-btn {
+  color: #21A339;
+  background: #E5F1F9;
+}
+
+.update-joke-btn:hover {
+  color: #E5F1F9;
+  background: #21A339;
+}
+
+.comments {
+  color: #FB902E;
+  background: #E5F1F9;
+}
+
+.comments:hover {
+  color: #E5F1F9;
+  background: #FB902E;
+}
+
+.laughs {
+  color: #FE2D32;
+  background: #E5F1F9;
+}
+
+.laughs:hover {
+  color: #E5F1F9;
+  background: #FE2D32;
 }

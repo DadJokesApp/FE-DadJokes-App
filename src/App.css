@@ -85,3 +85,18 @@ button {
 a:hover {
   text-decoration: none;
 }
+
+.update_form_wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update_form_wrapper h5 {
+  font-size: 3rem;
+  color: #B2CEF1;
+  text-align: center;
+}
+
+.update_form_wrapper .profile-links {
+  justify-content: space-around;
+}

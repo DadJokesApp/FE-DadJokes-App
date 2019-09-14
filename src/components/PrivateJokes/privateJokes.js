@@ -1,6 +1,7 @@
 import React from 'react'
 import Jokes from './jokes'
 import NavBar from '../Nav/NavBar'
+import './jokes.css'
 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -12,16 +13,14 @@ class PrivateJokes extends React.Component {
   }
   
   render() {
-    // console.log(`Revealed: ${this.props.jokes.joke}`)
     return (
       <div className='private-jokes-wrapper'>
         <NavBar />
         <Link to='/home'>
-          <h2>All jokes component</h2>
+          <h2>Joke Feed</h2>
         </Link>
         <Jokes 
           jokes={this.props.jokes} 
-          // toggleReveal={this.toggleReveal} 
           />
       </div>
     )

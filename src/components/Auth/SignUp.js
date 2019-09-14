@@ -31,7 +31,9 @@ class SignUp extends React.Component {
     e.preventDefault()
     this.props
       .register(this.state.newUser)
-      .then(() => this.props.addedUser ? this.props.history.push('/login') : alert('User was not successfully added'))
+      .then(() => this.props.addedUser 
+        ? this.props.history.push('/login') 
+        : alert('User was not successfully added'))
   }
   render() {
     return (

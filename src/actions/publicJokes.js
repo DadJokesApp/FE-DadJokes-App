@@ -7,8 +7,8 @@ export const GET_PUBLIC_FAILURE = 'GET_PUBLIC_FAILURE'
 export const getPublicJokes = () => dispatch => {
   dispatch({ type: GET_PUBLIC_START })
   axios
-    .get('http://localhost:4000/api/jokes/public')
-    // .get('https://dadjokes-backend.herokuapp.com/api/jokes/public')
+    // .get('http://localhost:4000/api/jokes/public')
+    .get('https://dadjokes-backend.herokuapp.com/api/jokes/public')
     .then(res => {
       dispatch({ type: GET_PUBLIC_SUCCESS, payload: res.data })
     })
