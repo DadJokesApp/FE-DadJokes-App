@@ -9,7 +9,7 @@ export const newJoke = newJoke => dispatch => {
   dispatch({ type: NEW_JOKE_START })
   return axios
     .post('http://localhost:4000/api/jokes', newJoke)
-    // .post('https://dadjokes-backend.herokuapp.com/api/auth/register', newUser)
+    // .post('https://dadjokes-backend.herokuapp.com/api/jokes', newJoke)
     .then(res => {
       dispatch({
         type: NEW_JOKE_SUCCESS,

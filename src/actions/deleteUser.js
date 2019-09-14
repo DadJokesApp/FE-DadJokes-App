@@ -15,9 +15,10 @@ export const deleteUser = user => dispatch => {
   return axios
     .put('http://localhost:4000/api/auth/register', 
     user,
-    { headers: user }
-    )
-    // .put('https://dadjokes-backend.herokuapp.com/api/auth/register', user)
+    { headers: user })
+    // .put('https://dadjokes-backend.herokuapp.com/api/auth/register', 
+    // user,
+    // { headers: user })
     .then(res => {
       const token = res.data.token
       localStorage.setItem('token', token)

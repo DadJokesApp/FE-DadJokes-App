@@ -70,6 +70,12 @@ import {
   NEW_JOKE_FAILURE,
 } from '../actions/newJoke'
 
+import {
+  ADD_COMMENT_START,
+  ADD_COMMENT_SUCCESS,
+  ADD_COMMENT_FAILURE,
+} from '../actions/addComment'
+
 import jwt from 'jsonwebtoken'
 
 const initialState = {
@@ -78,12 +84,15 @@ const initialState = {
   isLoggingIn: false,
   token: localStorage.getItem('token'),
   user: jwt.decode(localStorage.getItem('token')),
+  // token: null,
+  // user: null,
   jokes: [],
   joke: [],
   publicJokes: [],
   jokeComments: [],
   newJoke: [],
   userJokes: [],
+  newComment: [],
   addingUser: false,
   addedUser: false,
   active: false,
@@ -384,6 +393,29 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         addedJoke: false,
+        error: action.payload,
+      }
+
+    // Add comment reducer 🦆
+    case ADD_COMMENT_START:
+      return {
+        ...state,
+        addingComment: true,
+        addedComment: false,
+        error: '',
+      }
+    case ADD_COMMENT_SUCCESS:
+      return {
+        ...state,
+        addingComment: false,
+        addedComment: true,
+        newComment: action.payload,
+        error: '',
+      }
+    case ADD_COMMENT_FAILURE:
+      return {
+        ...state,
+        addedComment: false,
         error: action.payload,
       }
 

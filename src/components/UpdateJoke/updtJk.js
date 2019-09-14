@@ -6,44 +6,25 @@ import { getJokeById } from '../../actions/getJokeById'
 import { updateJoke } from '../../actions/updateJoke'
 import { deleteJoke } from '../../actions/deleteJoke'
 import { Form, Input, Button } from 'reactstrap'
-// import { Link } from 'react-router-dom'
 
 class UpdtJk extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       updatedJoke: {
-        id: `${this.props.joke.id}`,
-        joke: `${this.props.joke.joke}`,
-        punchline: `${this.props.joke.punchline}`,
-        revealed: `${this.props.joke.revealed}`,
-        laughs: `${this.props.joke.laughs}`
+        id: `${this.props.match.params.id}`,
+        joke: ``,
+        punchline: ``,
+        user_id: `${this.props.user.id}`
       }
     }
   }
 
-  
-
   componentDidMount() {
     console.log(this.props)
-    const result = this.props.getJokeById(this.props.match.params.id)
-    // result = async () => await this.props.getJokeById(this.props.match.params.id)
-    // console.log(result())
-    // console.log(`Jokie joke: ${this.props.joke.joke}`)
-    // this.setState({
-    //   updatedJoke: {
-    //     id: `${this.props.joke.id}`,
-    //     joke: `${this.props.joke.joke}`,
-    //     punchline: `${this.props.joke.punchline}`,
-    //     revealed: `${this.props.joke.revealed}`,
-    //     laughs: `${this.props.joke.laughs}`
-    //   }
-    // })
+    this.props.getJokeById(this.props.match.params.id)
   }
 
-  
-  
-  // console.log(result)
   handleInputChange = e => {
     this.setState({
       updatedJoke: {
@@ -57,19 +38,14 @@ class UpdtJk extends React.Component {
     e.preventDefault()
     this.props
       .updateJoke(this.state.updatedJoke)
-      // .then(res => (this.props.history.push('/home')))
-    // console.log(this.props.user.id)
+      .then(() => this.state.updatedJoke 
+        ? this.props.history.push('/home') 
+        : alert('Joke was not successfully updated'))
   }
 
   render() {
-    // const { joke } = this.props
-    console.log(this.props)
-    // console.log(this.state.updatedJoke)
-    // this.result().then(result => console.log(result))
     return (
       <div className='update_form_wrapper'>
-        {  }
-        {  }
         <Form onSubmit={this.handleSubmit}>
           <div className='key_value_pears'> {/* 🔑🍐 */}
             <h5>Joke:</h5>
@@ -93,28 +69,6 @@ class UpdtJk extends React.Component {
             />
           </div>
 
-          {/* <div className='key_value_pears'>
-            <h5>Revealed:</h5>
-            <Input 
-              type='text'
-              name='revealed'
-              placeholder='Revealed'
-              value={this.state.updatedJoke.revealed}
-              onChange={this.handleInputChange}
-            />
-          </div>
-
-          <div className='key_value_pears'>
-            <h5>Laughs:</h5>
-            <Input 
-              type='text'
-              name='laughs'
-              placeholder='Profile image URL'
-              value={this.state.updatedJoke.laughs}
-              onChange={this.handleInputChange}
-            />
-          </div> */}
-
           <Button>Submit Changes</Button>
         </Form>
       </div>
@@ -125,6 +79,7 @@ class UpdtJk extends React.Component {
 const mapStateToProps = state => {
   return {
     joke: state.joke,
+    user: state.user
   }
 }
 

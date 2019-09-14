@@ -11,7 +11,7 @@ export const updateUser = updatedUser => dispatch => {
   dispatch({ type: UPDATE_USER_START })
   return axios
     .put(`http://localhost:4000/api/users/${updatedUser.id}`, updatedUser)
-    // .put('https://dadjokes-backend.herokuapp.com/api/auth/register', user)
+    // .put('https://dadjokes-backend.herokuapp.com/api/users/${updatedUser.id}`, updatedUser)
     .then(res => {
       const token = res.data.token
       console.log(`Token: ${res.data.user}`)
@@ -27,7 +27,6 @@ export const updateUser = updatedUser => dispatch => {
       })
     })
     .catch(err => {
-      // console.log(`updated user: ${id}`)
       dispatch({ type: UPDATE_USER_FAILURE, payload: err })
     })
 }

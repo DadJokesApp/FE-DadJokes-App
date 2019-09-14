@@ -4,7 +4,6 @@ import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
 
 const laugh = <FontAwesomeIcon icon={faLaughSquint} />
 const comment = <FontAwesomeIcon icon={faComment} />
@@ -16,6 +15,7 @@ const UserJokes = ({ userJokes }) => {
       {userJokes.map(joke => {
         return (
           <div key={joke.id} className='indi-joke'>
+            {console.log(joke)}
             <div className='joke'>
               <div className='joke-meat'>
                 <img src={joke.img_url} alt='profile pic' />
@@ -26,15 +26,14 @@ const UserJokes = ({ userJokes }) => {
 
             <div className='reveal'>
               <div className='punchline'>
-                <div className='joke-punchline hidden'>{joke.punchline}</div>
+                <div className='joke-punchline'>{joke.punchline}</div>
               </div>
-              <Button>{comment} 5</Button>
-              <Button>{laugh} 56</Button>
-              <Button>
-                <Link to={{pathname:`/jokes/${joke.id}/update_joke`, state: this.props.joke.id}}>
+              <Button className='comments'>{comment} Comment's</Button>
+              <Button className='laughs'>{laugh} {`${joke.laughs}`}</Button>
+              <Button 
+                className='update-joke-btn'
+                href={`/jokes/${joke.id}/update_joke`}>
                   Update Joke!
-                </Link>
-                
               </Button>
             </div>
           </div>

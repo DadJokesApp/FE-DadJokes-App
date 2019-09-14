@@ -10,7 +10,6 @@ export const getJokes = ()  => dispatch => {
     .get('http://localhost:4000/api/jokes')
     // .get('https://dadjokes-backend.herokuapp.com/api/jokes')
     .then(res => {
-        console.log(res.data)
         dispatch({
           type: GET_JOKES_SUCCESS,
           payload: res.data

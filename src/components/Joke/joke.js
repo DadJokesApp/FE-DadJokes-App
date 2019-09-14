@@ -7,20 +7,51 @@ import { faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 import { connect } from 'react-redux'
-import { Button } from 'reactstrap'
-// import { Link } from 'react-router-dom'
+import { Button, Input, Form } from 'reactstrap'
 import { getJokeComments } from '../../actions/getJokeComments'
 import { getJokeById } from '../../actions/getJokeById'
+import { addComment } from '../../actions/addComment'
 
 const laugh = <FontAwesomeIcon icon={faLaughSquint} />
 const comment = <FontAwesomeIcon icon={faComment} />
 
-class Joke extends React.Component {
+class Joke extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      newComment: {
+        joke_id: `${this.props.match.params.id}`,
+        user_id: `${this.props.user.id}`,
+        comment: ``,
+      }
+    }
+  }
+
+  handleInputChange = e => {
+    this.setState({
+      newComment: {
+        ...this.state.newComment,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+
+  handleAddComment = e => {
+    e.preventDefault()
+    this.props
+      .addComment(this.state.newComment)
+      .then(() => this.props.getJokeComments(this.props.match.params.id))
+      .then(() => this.setState({ newComment: {comment: ''} }))
+    
+  }
+
   componentDidMount() {
     this.props.getJokeComments(this.props.match.params.id)
     this.props.getJokeById(this.props.match.params.id)
   }
+
   render() {
+    console.log(this.props.jokeComments.length)
     return (
       <div className='private-jokes-wrapper' key={this.props.joke.id}>
         <NavBar />
@@ -35,18 +66,14 @@ class Joke extends React.Component {
           <div className='reveal'>
             <div className='punchline'>
               <div 
-                // id={hidden ? 'hidden' : ''}
-                // hidden={hidden}
                 className='joke-punchline'>
                 {this.props.joke.punchline}
               </div>
             </div>
             <Button className='btn-joke'>
-              {comment} 56
+              {comment} {this.props.jokeComments.length}
             </Button>
-            <Button className='btn-joke'>{laugh} 56</Button>
-            {/* <Button className='btn-joke'>Reveal Punchline!</Button>  */}
-            {/* onClick={toggleReveal} */}
+            <Button className='btn-joke'>{laugh} {this.props.joke.laughs}</Button>
           </div>
           {this.props.jokeComments.map(comment => {
             return (
@@ -57,7 +84,23 @@ class Joke extends React.Component {
               </div>
             )
           })}
-          
+          <Form 
+            onSubmit={this.handleAddComment} 
+            className='leave-a-comment'>
+            <img 
+              src={this.props.user.img_url} 
+              alt='profile pic' 
+              className='comment-pic'
+            />
+            <Input 
+              type='text'
+              name='comment'
+              placeholder='Leave a comment . . .'
+              onChange={this.handleInputChange}
+              value={this.state.newComment.comment}
+            />
+            <Button>Comment</Button>
+          </Form>
         </div>
       </div>
     )
@@ -65,13 +108,15 @@ class Joke extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(`State: `, state.joke)
   return {
       joke: state.joke,
       jokeComments: state.jokeComments,
+      user: state.user
   }
 }
 
 export default connect(
-  mapStateToProps,
-  { getJokeById, getJokeComments }
+    mapStateToProps,
+  { getJokeById, getJokeComments, addComment }
 )(Joke)
