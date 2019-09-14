@@ -4,7 +4,6 @@ import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
 
 const laugh = <FontAwesomeIcon icon={faLaughSquint} />
 const comment = <FontAwesomeIcon icon={faComment} />

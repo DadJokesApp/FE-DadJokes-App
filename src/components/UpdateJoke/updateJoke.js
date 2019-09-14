@@ -1,7 +1,6 @@
 import React from 'react'
 import NavBar from '../Nav/NavBar'
 
-import { Button } from 'reactstrap'
 import { connect } from 'react-redux'
 import { getJokeById } from '../../actions/getJokeById'
 import { updateJoke } from '../../actions/updateJoke'
