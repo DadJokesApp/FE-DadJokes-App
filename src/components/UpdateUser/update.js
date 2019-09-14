@@ -93,5 +93,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
+  // null,
   { updateUser, deleteUser }
 )(UpdateUser)

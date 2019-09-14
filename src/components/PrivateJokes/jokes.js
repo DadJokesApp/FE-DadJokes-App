@@ -1,15 +1,9 @@
 import React from 'react'
 import './jokes.css'
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faLaughSquint } from '@fortawesome/free-solid-svg-icons'
-// import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Button } from 'reactstrap'
-
-// const laugh = <FontAwesomeIcon icon={faLaughSquint} />
-// const comment = <FontAwesomeIcon icon={faComment} />
 
 class Jokes extends React.Component {
   render() {

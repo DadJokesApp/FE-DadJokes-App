@@ -4,6 +4,7 @@ import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaughSquint } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const laugh = <FontAwesomeIcon icon={faLaughSquint} />
 const comment = <FontAwesomeIcon icon={faComment} />
@@ -40,7 +41,7 @@ const UserJokes = ({ userJokes }) => {
               <Button 
                 className='update-joke-btn'
                 href={`/jokes/${joke.id}/update_joke`}>
-                  Update Joke!
+                  Update Joke! 
               </Button>
             </div>
           </div>

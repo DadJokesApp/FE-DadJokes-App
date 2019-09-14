@@ -8,7 +8,6 @@ export const newJoke = newJoke => dispatch => {
   console.log('New Joke: ', newJoke)
   dispatch({ type: NEW_JOKE_START })
   return axios
-    // .post('http://localhost:4000/api/jokes', newJoke)
     .post('https://dadjokes-backend.herokuapp.com/api/jokes', newJoke)
     .then(res => {
       dispatch({
