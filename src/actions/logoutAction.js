@@ -8,7 +8,7 @@ export const logout = () => dispatch => {
   dispatch({ type: LOGOUT_START })
   axios
     // .delete('http://localhost:4000/api/auth/logout')
-    .delete('https://dadjokes-backend.herokuapp.com/auth/logout', user)
+    .delete('https://dadjokes-backend.herokuapp.com/auth/logout')
     .then(res => {
       dispatch({ 
         type: LOGOUT_SUCCESS, 
