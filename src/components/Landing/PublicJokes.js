@@ -7,50 +7,18 @@ import './JokeList.css';
 import SearchForm from '../../components/search/SearchForm';
 import { getPublicJokes } from '../../actions/publicJokes'
 
-
-
-
 class PublicJokes extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       publicJokes: `${this.props.publicJokes}`
     }
-    
+    console.log(props, "PublicJokes props");
   }
-  // state = {jokes : [],loading : false};
-  // static defaultProps = {
-  //   jokesToGet: 4
-   //}
   componentDidMount(){
     
     this.props.getPublicJokes();
   }
-
-  // getNewJokes = () => {
-  //   this.setState({loading: true });
-  // }
-
-
-  // getJokes = async () => {
-  //   let publicJokes = [];
-  //   // let pull = axios.get('https://dadjokes-backend.herokuapp.com/api/jokes/public');
-
-  //   while (publicJokes.length < this.props.jokesToGet){
-  //     let res = await axios.get('https://dadjokes-backend.herokuapp.com/api/jokes/public');
-  //     publicJokes.push(res.data);
-
-  //   }
-
-    
-
-  //   let publicJokesA = publicJokes[0].map(j => {
-  //     return j;
-  //   })
-
-  //   this.setState({publicJokesA, loading: false});
-  // }
-
   handleVote(id, delta) {
     this.setState(
       st => ({
@@ -63,19 +31,9 @@ class PublicJokes extends React.Component {
           : j
           )
       }),
-      (window.localStorage.setItem('publicJokes', JSON.stringify(this.state.jokes)))
+      () => window.localStorage.setItem('publicJokes', JSON.stringify(this.state.jokes))
     );
   }
-
-  // handleClick = () => {
-  //   this.setState(
-  //     {
-  //       loading: true
-  //     },
-  //     this.getJokes
-  //   );
-  // };
-
   searchJoke = (list) => {
     this.setState({
       ...this.props.getPublicJokes(), publicJokes:list
@@ -96,10 +54,7 @@ class PublicJokes extends React.Component {
       <div className = 'container'>
         <SearchForm className='search-bar' searchJoke={this.searchJoke}/>
         <div className="JokeList">
-          <div className= "top-word">
-
-          </div>
-
+          <div className= "top-word"></div>
           <div className = 'JokeList-sidebar'>
             <h1 className="JokeList-title">
               <Typing>
@@ -113,19 +68,18 @@ class PublicJokes extends React.Component {
               Get Dad Jokes
             </button>
           </div>
-
           <div className="JokeList-jokes">
-          {this.props.publicJokes.map(j => (
-            <Joke 
-              key = {j.id}
-              votes = {j.votes}
-              text = {j.joke}
-              upvote = {() => this.handleVote(j.id,1)}
-              downvote= {() => this.handleVote(j.id, -1)}
-            />
-          ))} 
-          {console.log(this.props, 'bottom props')}
-        </div>
+            {this.props.publicJokes.map(j => (
+              <Joke 
+                key = {j.id}
+                votes = {j.votes}
+                text = {j.joke + ' ' + j.punchline}
+                upvote = {() => this.handleVote(j.id,1)}
+                downvote= {() => this.handleVote(j.id, -1)}
+              />
+            ))} 
+            {console.log(this.props, 'bottom props')}
+          </div>
         </div>
       </div>
     )

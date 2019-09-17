@@ -7,16 +7,13 @@ import JokeList from '../Landing/PublicJokes'
 
 export class JokeSearch extends Component {
     constructor() {
-        super();
+        super()
         this.state = {
           search: "",
           jokes: [],
           isFetchingJokes: true
-        };
+        }
       }
-    
-        // this.onSearchChange = this.onSearchChange.bind(this);
-        // this.searchJokes = this.searchJokes.bind(this);
 
       searchHandler = e => {
         this.setState({
@@ -36,9 +33,9 @@ export class JokeSearch extends Component {
       render() {
       return (
         <div>
-          <JokeSearch 
-          searchHandle={this.searchHandler} 
-          value={this.state.search} />
+          {/* <JokeSearch 
+          onChange={this.searchHandler} 
+          value={this.state.search} /> */}
           <JokeList postProps={this.state.jokes} />
         </div>
       )
